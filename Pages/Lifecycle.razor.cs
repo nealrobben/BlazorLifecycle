@@ -4,58 +4,22 @@ namespace BlazorLifeCycle.Pages;
 
 public partial class Lifecycle
 {
-    public override Task SetParametersAsync(ParameterView parameters)
+    public override async Task SetParametersAsync(ParameterView parameters)
     {
-        Console.WriteLine("{0}()", nameof(SetParametersAsync));
-
-        return base.SetParametersAsync(parameters);
+        Console.WriteLine("SetParametersAsync - Begin");
+        await base.SetParametersAsync(parameters);
+        Console.WriteLine("SetParametersAsync - End");
     }
 
-    protected override void OnInitialized()
-    {
-        Console.WriteLine("{0}()", nameof(OnInitialized));
+    protected override void OnInitialized() => Console.WriteLine("OnInitialized");
 
-        base.OnInitialized();
-    }
+    protected override async Task OnInitializedAsync() => Console.WriteLine("OnInitializedAsync");
 
-    protected override Task OnInitializedAsync()
-    {
-        Console.WriteLine("{0}()", nameof(OnInitializedAsync));
+    protected override void OnParametersSet() => Console.WriteLine("OnParametersSet");
 
-        return base.OnInitializedAsync();
-    }
+    protected override async Task OnParametersSetAsync() => Console.WriteLine("OnParametersSetAsync");
 
-    protected override void OnParametersSet()
-    {
-        Console.WriteLine("{0}()", nameof(OnParametersSet));
+    protected override void OnAfterRender(bool firstRender) => Console.WriteLine($"OnAfterRender (First render: {firstRender})");
 
-        base.OnParametersSet();
-    }
-
-    protected override Task OnParametersSetAsync()
-    {
-        Console.WriteLine("{0}()", nameof(OnParametersSetAsync));
-
-        return base.OnParametersSetAsync();
-    }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        Console.WriteLine("{0}({1}: {2})",
-            nameof(OnAfterRender),
-            nameof(firstRender),
-            firstRender.ToString().ToLower());
-
-        base.OnAfterRender(firstRender);
-    }
-
-    protected override Task OnAfterRenderAsync(bool firstRender)
-    {
-        Console.WriteLine("{0}({1}: {2})",
-            nameof(OnAfterRenderAsync),
-            nameof(firstRender),
-            firstRender.ToString().ToLower());
-
-        return base.OnAfterRenderAsync(firstRender);
-    }
+    protected override async Task OnAfterRenderAsync(bool firstRender) => Console.WriteLine($"OnAfterRenderAsync (First render: {firstRender})");
 }
