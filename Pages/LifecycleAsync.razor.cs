@@ -6,6 +6,8 @@ public partial class LifecycleAsync
 {
     public override async Task SetParametersAsync(ParameterView parameters)
     {
+        Console.WriteLine("LifecycleAsync");
+        Console.WriteLine("------------------------------------------");
         Console.WriteLine("SetParametersAsync - Begin");
         await base.SetParametersAsync(parameters);
         Console.WriteLine("SetParametersAsync - End");

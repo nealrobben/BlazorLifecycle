@@ -8,6 +8,8 @@ public partial class LifecycleAsyncMultipleStateHasChangedDisposed : IDisposable
 
     public override async Task SetParametersAsync(ParameterView parameters)
     {
+        Console.WriteLine("LifecycleAsyncMultipleStateHasChangedDisposed");
+        Console.WriteLine("------------------------------------------");
         Console.WriteLine("SetParametersAsync - Begin");
         await base.SetParametersAsync(parameters);
         Console.WriteLine("SetParametersAsync - End");

@@ -8,6 +8,8 @@ public partial class LifecycleAsyncMultipleStateHasChanged
 
     public override async Task SetParametersAsync(ParameterView parameters)
     {
+        Console.WriteLine("LifecycleAsyncMultipleStateHasChanged");
+        Console.WriteLine("------------------------------------------");
         Console.WriteLine("SetParametersAsync - Begin");
         await base.SetParametersAsync(parameters);
         Console.WriteLine("SetParametersAsync - End");

@@ -8,6 +8,8 @@ public partial class LifecycleAsyncMultiple
 
     public override async Task SetParametersAsync(ParameterView parameters)
     {
+        Console.WriteLine("LifecycleAsyncMultiple");
+        Console.WriteLine("------------------------------------------");
         Console.WriteLine("SetParametersAsync - Begin");
         await base.SetParametersAsync(parameters);
         Console.WriteLine("SetParametersAsync - End");
